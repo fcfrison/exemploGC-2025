@@ -223,8 +223,8 @@ exp :  NUM  { System.out.println("\tPUSHL $"+$1); }
 
 							
 		void gcExpArit(int oparit) {
- 				System.out.println("\tPOPL %EBX");
-   			System.out.println("\tPOPL %EAX");
+		System.out.println("\tPOPL %EBX");
+		System.out.println("\tPOPL %EAX");
 
    		switch (oparit) {
      		case '+' : System.out.println("\tADDL %EBX, %EAX" ); break;
