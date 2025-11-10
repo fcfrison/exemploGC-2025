@@ -10,6 +10,7 @@
 %token WHILE,TRUE, FALSE, IF, ELSE
 %token EQ, LEQ, GEQ, NEQ 
 %token AND, OR
+%token MAISMAIS
 
 %right '='
 %left OR
@@ -18,7 +19,7 @@
 %left '+' '-'
 %left '*' '/' '%'
 %left '!' 
-
+%nonassoc MAISMAIS
 %type <sval> ID
 %type <sval> LIT
 %type <sval> NUM
@@ -50,10 +51,9 @@ lcmd : lcmd cmd
 	   |
 	   ;
 	   
-cmd :  
-	 '{' lcmd '}' { System.out.println("\t\t# terminou o bloco..."); }
-					     				       
-      | WRITE '(' LIT ')' ';' { strTab.add($3);
+cmd :  exp ';' { System.out.println("/tPOPL %EDX"); }
+	 |'{' lcmd '}' { System.out.println("\t\t# terminou o bloco..."); }
+	 | WRITE '(' LIT ')' ';' { strTab.add($3);
                                 System.out.println("\tMOVL $_str_"+strCount+"Len, %EDX"); 
 				System.out.println("\tMOVL $_str_"+strCount+", %ECX"); 
                                 System.out.println("\tCALL _writeLit"); 
@@ -137,10 +137,10 @@ exp :  	NUM  { System.out.println("\tPUSHL $"+$1); }
  		| ID   { System.out.println("\tPUSHL _"+$1); }
     	| '(' exp	')' 
     	| '!' exp       { gcExpNot(); }
-		| ID '=' exp	';' {  System.out.println("\tPOPL %EDX");
+		| ID '=' exp	{  System.out.println("\tPOPL %EDX");
   						   System.out.println("\tMOVL %EDX, _"+$1);
-					     }
-     
+						   System.out.println("\tPUSHL  %EDX");
+					        }
 		| exp '+' exp		{ gcExpArit('+'); }
 		| exp '-' exp		{ gcExpArit('-'); }
 		| exp '*' exp		{ gcExpArit('*'); }
@@ -156,7 +156,14 @@ exp :  	NUM  { System.out.println("\tPUSHL $"+$1); }
 												
 		| exp OR exp		{ gcExpLog(OR); }											
 		| exp AND exp		{ gcExpLog(AND); }											
-		
+		| MAISMAIS ID       { 
+								System.out.println("\tPUSHL _"+$2);
+								System.out.println("\tPUSHL $1");
+								gcExpArit("+");
+								System.out.println("\tPOPL %EAX");
+								System.out.println("\tMOVL %EAX, _" + $2);
+								System.out.println("\tPUSHL %EAX");
+							}
 		;							
 
 
