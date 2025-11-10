@@ -50,12 +50,9 @@ lcmd : lcmd cmd
 	   |
 	   ;
 	   
-cmd :  ID '=' exp	';' {  System.out.println("\tPOPL %EDX");
-  						   System.out.println("\tMOVL %EDX, _"+$1);
-					     }
-			| '{' lcmd '}' { System.out.println("\t\t# terminou o bloco..."); }
-					     
-					       
+cmd :  
+	 '{' lcmd '}' { System.out.println("\t\t# terminou o bloco..."); }
+					     				       
       | WRITE '(' LIT ')' ';' { strTab.add($3);
                                 System.out.println("\tMOVL $_str_"+strCount+"Len, %EDX"); 
 				System.out.println("\tMOVL $_str_"+strCount+", %ECX"); 
@@ -134,12 +131,15 @@ restoIf : ELSE  {
 		;										
 
 
-exp :  NUM  { System.out.println("\tPUSHL $"+$1); } 
-    |  TRUE  { System.out.println("\tPUSHL $1"); } 
-    |  FALSE  { System.out.println("\tPUSHL $0"); }      
+exp :  	NUM  { System.out.println("\tPUSHL $"+$1); } 
+    	|  TRUE  { System.out.println("\tPUSHL $1"); } 
+    	|  FALSE  { System.out.println("\tPUSHL $0"); }      
  		| ID   { System.out.println("\tPUSHL _"+$1); }
-    | '(' exp	')' 
-    | '!' exp       { gcExpNot(); }
+    	| '(' exp	')' 
+    	| '!' exp       { gcExpNot(); }
+		| ID '=' exp	';' {  System.out.println("\tPOPL %EDX");
+  						   System.out.println("\tMOVL %EDX, _"+$1);
+					     }
      
 		| exp '+' exp		{ gcExpArit('+'); }
 		| exp '-' exp		{ gcExpArit('-'); }
