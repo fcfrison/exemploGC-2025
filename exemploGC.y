@@ -10,7 +10,7 @@
 %token WHILE,TRUE, FALSE, IF, ELSE
 %token EQ, LEQ, GEQ, NEQ 
 %token AND, OR
-%token MAISMAIS
+%token MAISMAIS, MENOSMENOS
 
 %right '='
 %left OR
@@ -19,7 +19,7 @@
 %left '+' '-'
 %left '*' '/' '%'
 %left '!' 
-%nonassoc MAISMAIS
+%nonassoc MAISMAIS MENOSMENOS
 %type <sval> ID
 %type <sval> LIT
 %type <sval> NUM
@@ -159,10 +159,34 @@ exp :  	NUM  { System.out.println("\tPUSHL $"+$1); }
 		| MAISMAIS ID       { 
 								System.out.println("\tPUSHL _"+$2);
 								System.out.println("\tPUSHL $1");
-								gcExpArit("+");
+								gcExpArit('+');
 								System.out.println("\tPOPL %EAX");
 								System.out.println("\tMOVL %EAX, _" + $2);
-								System.out.println("\tPUSHL %EAX");
+								System.out.println("\tPUSHL _"+$2);
+							}
+		| ID MAISMAIS       {
+								System.out.println("\tPUSHL _"+$1);
+								System.out.println("\tPUSHL _"+$1);
+								System.out.println("\tPUSHL $1");
+								gcExpArit('+');
+								System.out.println("\tPOPL %EAX");
+								System.out.println("\tMOVL %EAX, _" + $1);
+							}
+		| MENOSMENOS ID     { 
+								System.out.println("\tPUSHL _"+$2);
+								System.out.println("\tPUSHL $1");
+								gcExpArit('-');
+								System.out.println("\tPOPL %EAX");
+								System.out.println("\tMOVL %EAX, _" + $2);
+								System.out.println("\tPUSHL _"+$2);
+							}
+		| ID MENOSMENOS       {
+								System.out.println("\tPUSHL _"+$1);
+								System.out.println("\tPUSHL _"+$1);
+								System.out.println("\tPUSHL $1");
+								gcExpArit('-');
+								System.out.println("\tPOPL %EAX");
+								System.out.println("\tMOVL %EAX, _" + $1);
 							}
 		;							
 

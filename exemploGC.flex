@@ -76,6 +76,7 @@ else   { return Parser.ELSE;     }
 true   { return Parser.TRUE;     }
 false  { return Parser.FALSE;    }
 "++"   { return Parser.MAISMAIS; }
+"--"   { return Parser.MENOSMENOS; }
 
 
 
