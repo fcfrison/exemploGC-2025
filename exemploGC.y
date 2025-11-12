@@ -11,7 +11,9 @@
 %token EQ, LEQ, GEQ, NEQ 
 %token AND, OR
 %token MAISMAIS, MENOSMENOS
+%token MAISIGUAL
 
+%nonassoc MAISIGUAL
 %right '='
 %left OR
 %left AND
@@ -187,6 +189,13 @@ exp :  	NUM  { System.out.println("\tPUSHL $"+$1); }
 								gcExpArit('-');
 								System.out.println("\tPOPL %EAX");
 								System.out.println("\tMOVL %EAX, _" + $1);
+							}
+		| ID MAISIGUAL exp {
+								System.out.println("\tPUSHL _" + $1);
+								gcExpArit('+');
+								System.out.println("\tPOPL %EAX");
+								System.out.println("\tMOVL %EAX, _" + $1);
+								System.out.println("\tPUSHL %EAX");
 							}
 		;							
 
