@@ -15,12 +15,13 @@
 
 %nonassoc MAISIGUAL
 %right '='
+%right '?' ':'
 %left OR
 %left AND
 %left  '>' '<' EQ LEQ GEQ NEQ
 %left '+' '-'
 %left '*' '/' '%'
-%left '!' 
+%left '!'
 %nonassoc MAISMAIS MENOSMENOS
 %type <sval> ID
 %type <sval> LIT
@@ -53,7 +54,7 @@ lcmd : lcmd cmd
 	   |
 	   ;
 	   
-cmd :  exp ';' { System.out.println("/tPOPL %EDX"); }
+cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 	 |'{' lcmd '}' { System.out.println("\t\t# terminou o bloco..."); }
 	 | WRITE '(' LIT ')' ';' { strTab.add($3);
                                 System.out.println("\tMOVL $_str_"+strCount+"Len, %EDX"); 
@@ -102,28 +103,28 @@ cmd :  exp ';' { System.out.println("/tPOPL %EDX"); }
 							pRot.pop();
 							}  
 							
-			| IF '(' exp {	
-											pRot.push(proxRot);  proxRot += 2;
-															
-											System.out.println("\tPOPL %EAX");
-											System.out.println("\tCMPL $0, %EAX");
-											System.out.printf("\tJE rot_%02d\n", pRot.peek());
-										}
-								')' cmd 
+	| IF '(' exp {	
+				pRot.push(proxRot);
+				proxRot += 2;
+				System.out.println("\tPOPL %EAX\n");
+				System.out.println("\tCMPL $0, %EAX\n");
+				System.out.printf("\tJE rot_%02d\n", pRot.peek());
+			}
+			')' cmd
 
-             restoIf {
-											System.out.printf("rot_%02d:\n",pRot.peek()+1);
-											pRot.pop();
-										}
+			restoIf {
+						System.out.printf("rot_%02d:\n",pRot.peek()+1);
+						pRot.pop();
+					}
      ;
      
      
 restoIf : ELSE  {
-											System.out.printf("\tJMP rot_%02d\n", pRot.peek()+1);
-											System.out.printf("rot_%02d:\n",pRot.peek());
-								
-										} 							
-							cmd  
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek()+1);
+				System.out.printf("rot_%02d:\n",pRot.peek());
+	
+			} 							
+			cmd  
 							
 							
 		| {
@@ -197,7 +198,24 @@ exp :  	NUM  { System.out.println("\tPUSHL $"+$1); }
 								System.out.println("\tMOVL %EAX, _" + $1);
 								System.out.println("\tPUSHL %EAX");
 							}
-		;							
+		| exp '?' {	
+				pRot.push(proxRot);
+				proxRot += 2;
+				System.out.println("\tPOPL %EAX");
+				System.out.println("\tCMPL $0, %EAX");
+				System.out.printf("\tJE rot_%02d\n", pRot.peek());
+			} 
+			
+			exp ':' {
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek()+1);
+				System.out.printf("rot_%02d:\n",pRot.peek());
+			} 	
+
+			exp {
+				System.out.printf("rot_%02d:\n",pRot.peek()+1);
+				pRot.pop();
+			}
+     ;						
 
 
 %%

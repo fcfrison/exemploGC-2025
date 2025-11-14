@@ -1,0 +1,9 @@
+int a;
+int b;
+int c;
+void main(){
+    a = 100;
+    b = 50;
+    c = a > b ? 500 : 1000;
+    write("c: ", c);
+}
