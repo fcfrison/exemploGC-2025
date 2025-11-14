@@ -182,19 +182,22 @@ public final static short OR=277;
 public final static short MAISMAIS=278;
 public final static short MENOSMENOS=279;
 public final static short MAISIGUAL=280;
+public final static short FOR=281;
 public final static short YYERRCODE=256;
 final static short yylhs[] = {                           -1,
     3,    0,    5,    7,    4,    2,    2,    8,    1,    1,
     1,    6,    6,    9,    9,    9,   11,    9,    9,   12,
-   13,    9,   14,    9,   16,   15,   15,   10,   10,   10,
+   13,    9,   14,    9,   16,   17,   18,   19,   20,    9,
+   21,   22,   23,    9,   24,   15,   15,   10,   10,   10,
    10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
    10,   10,   10,   10,   10,   10,   10,   10,   10,   10,
-   10,   10,   17,   18,   10,
+   10,   10,   25,   26,   10,
 };
 final static short yylen[] = {                            2,
     0,    3,    0,    0,    9,    2,    0,    3,    1,    1,
     1,    2,    0,    2,    3,    5,    0,    8,    5,    0,
-    0,    7,    0,    7,    0,    3,    0,    1,    1,    1,
+    0,    7,    0,    7,    0,    0,    0,    0,    0,   16,
+    0,    0,    0,   11,    0,    3,    0,    1,    1,    1,
     1,    3,    2,    3,    3,    3,    3,    3,    3,    3,
     3,    3,    3,    3,    3,    3,    3,    2,    2,    2,
     2,    3,    0,    0,    7,
@@ -202,167 +205,238 @@ final static short yylen[] = {                            2,
 final static short yydefred[] = {                         1,
     0,    0,    9,   10,   11,    0,    0,    0,    0,    0,
     2,    6,    8,    0,    0,    3,    0,   13,    0,    0,
-   28,    0,    0,    0,   20,   29,   30,    0,    0,    0,
-    0,   13,    0,   12,    0,   49,   51,    0,    0,    0,
-    0,    0,    0,   48,   50,   33,    0,    0,    5,    0,
-    0,    0,    0,    0,    0,   53,    0,    0,    0,    0,
-    0,    0,    0,   14,    0,    0,    0,    0,    0,    0,
-   32,   15,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,   37,   38,   39,    0,    0,    0,    0,
-    0,    0,   19,   16,    0,    0,   21,   54,    0,    0,
-    0,    0,    0,   25,   24,   22,    0,   18,    0,   26,
+   38,    0,    0,    0,   20,   39,   40,    0,    0,    0,
+    0,    0,   13,    0,   12,    0,   59,   61,    0,    0,
+    0,    0,    0,    0,   58,   60,    0,   43,    0,    0,
+    5,    0,    0,    0,    0,    0,    0,   63,    0,    0,
+    0,    0,    0,    0,    0,   14,    0,    0,    0,    0,
+    0,    0,    0,    0,   42,   15,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,   47,   48,   49,
+    0,    0,    0,    0,    0,    0,   25,    0,   19,   16,
+    0,    0,   21,   31,    0,   64,    0,    0,    0,    0,
+    0,    0,    0,   35,   24,   22,   32,   26,    0,   18,
+    0,   13,    0,   36,    0,    0,    0,   27,   34,    0,
+   28,   13,    0,    0,   30,
 };
 final static short yydgoto[] = {                          1,
-    6,    7,    2,   11,   17,   19,   33,    8,   34,   35,
-   89,   43,  101,   90,  105,  109,   79,  102,
+    6,    7,    2,   11,   17,   19,   34,    8,   35,   36,
+   93,   44,  109,   94,  115,  105,  123,  130,  132,  134,
+  110,  122,  127,  121,   83,  112,
 };
 final static short yysindex[] = {                         0,
-    0, -142,    0,    0,    0, -255, -259, -142,  -54, -254,
-    0,    0,    0,  -29,  -28,    0, -107,    0,   -3,  -53,
-    0,  -11,   -6,   -5,    0,    0,    0, -217, -215,    8,
-    8,    0,  -75,    0,   23,    0,    0,    8,    8, -202,
- -200,    8,   24,    0,    0,    0,   52,  -33,    0,    8,
-    8,    8,    8,    8,    8,    0,    8,    8,    8,    8,
-    8,    8,    8,    0,   97,   97,   26,   31,   97,    8,
-    0,    0,    2,    2,    2,    2,  104,    9,    8,    2,
-    2,   -4,   -4,    0,    0,    0,   14,   18,   36,   40,
-   59,   66,    0,    0,    8,   -3,    0,    0,   90, -184,
-   -3,    8,   28,    0,    0,    0,   97,    0,   -3,    0,
+    0, -248,    0,    0,    0, -255, -257, -248,  -51, -250,
+    0,    0,    0,  -22,  -17,    0,  -94,    0,    5,  -60,
+    0,   -3,    3,    8,    0,    0,    0, -218, -217,    9,
+   31,   31,    0,  -75,    0,   63,    0,    0,   31,   31,
+ -206, -208,   31,   15,    0,    0,   20,    0,   90,  -33,
+    0,   31,   31,   31,   31,   31,   31,    0,   31,   31,
+   31,   31,   31,   31,   31,    0,  281,  281,   17,   18,
+  281,   31,    2,   97,    0,    0,   -1,   -1,   -1,   -1,
+  409,  385,   31,   -1,   -1,   10,   10,    0,    0,    0,
+    4,    6,   12,   21,  104,   25,    0,  126,    0,    0,
+   31,    5,    0,    0,   31,    0,  133, -201,    5,  -55,
+  140,   31,   11,    0,    0,    0,    0,    0,  281,    0,
+    5,    0,   31,    0,    5,  167,  -56,    0,    0,  -50,
+    0,    0,    5,  -53,    0,
 };
 final static short yyrindex[] = {                         0,
-    0, -175,    0,    0,    0,    0,    0, -175,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,  -34,   16,
+    0, -189,    0,    0,    0,    0,    0, -189,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,  -48,   39,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,  -40,  -38,    0,   54,   69,    0,
-    0,    0,  126,  133,  140,  146,  -35,  -27,    0,  153,
-  160,  113,  120,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,    0,    0,    0,    0,    0,    0,  -18,
-    0,    0,    0,    0,    0,    0,  -32,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,  -28,  -26,    0,   34,
+   42,    0,    0,    0,    0,    0,  327,  334,  420,  426,
+  -36,  -38,    0,  434,  440,  288,  414,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,  -14,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,  -24,    0,
+    0,    0,    0,    0,  -40,    0,    0,    0,    0,    0,
+    0,    0,  -37,    0,    0,
 };
 final static short yygindex[] = {                         0,
-    0,  115,    0,    0,    0,   93,    0,    0,  -84,  408,
-    0,    0,    0,    0,    0,    0,    0,    0,
+    0,   67,    0,    0,    0,  -29,    0,    0,  -93,  687,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,
 };
-final static int YYTABLESIZE=510;
+final static int YYTABLESIZE=810;
 static short yytable[];
 static { yytable();}
 static void yytable(){
-yytable = new short[]{                         30,
-   52,    9,   34,   10,   13,   47,   31,   39,   55,   14,
-   15,  100,   16,   46,   27,   18,  106,   52,   52,   34,
-   34,   27,   47,   47,  110,   55,   55,   47,   40,   30,
-   46,   46,   63,   41,   42,   46,   31,   61,   63,   44,
-   30,   45,   62,   61,   59,   63,   60,   31,   62,   49,
-   61,   59,   31,   60,   67,   62,   31,   31,   31,   63,
-   31,   68,   31,   70,   61,   59,   87,   60,   58,   62,
-   57,   88,   93,   31,   31,   31,   94,   31,   31,   95,
-   96,   64,   58,  104,   57,   56,  108,    7,   63,   32,
-    4,   72,   71,   61,   59,   63,   60,   17,   62,   97,
-   61,   59,   63,   60,   27,   62,   27,   61,   59,   23,
-   60,   58,   62,   57,   56,    3,    4,    5,   58,   32,
-   57,   56,   12,   98,   48,   58,   63,   57,   56,    0,
-  103,   61,   59,   63,   60,    0,   62,    0,   61,   59,
-   63,   60,    0,   62,    0,   61,   59,    0,   60,   58,
-   62,   57,   56,   35,    0,   35,   58,   35,   57,   56,
-   36,    0,   36,   58,   36,   57,   42,    0,    0,    0,
-   35,   35,   35,   43,   35,   35,    0,   36,   36,   36,
-   44,   36,   36,   42,   42,   42,   45,   42,   42,    0,
-   43,   43,   43,   40,   43,   43,    0,   44,   44,   44,
-   41,   44,   44,   45,   45,   45,    0,   45,   45,    0,
-   40,   40,   40,    0,   40,   40,    0,   41,   41,   41,
-    0,   41,   41,   20,   36,   37,   38,   21,    0,    0,
-    0,   22,   23,   24,    0,   25,   26,   27,   27,    0,
-   47,   47,   27,    0,   28,   29,   27,   27,   27,   46,
-   27,   27,   27,   20,    0,    0,    0,   21,    0,   27,
-   27,   22,   23,   24,   20,   25,   26,   27,   21,    0,
-    0,    0,    0,    0,   28,   29,    0,   26,   27,    0,
-   50,   51,   52,   53,   54,   28,   29,   31,   31,   31,
-   31,   31,   31,    0,   50,   51,   52,   53,   54,   55,
+yytable = new short[]{                         31,
+   40,    9,   56,   50,   57,   10,   32,   13,  108,    3,
+    4,    5,   62,   14,   44,  116,   65,   15,   37,   56,
+   56,   57,   57,   16,   56,   37,   57,  124,   18,   62,
+   62,   44,   44,   65,   65,   65,   41,   31,   45,   46,
+   63,   61,   42,   62,   32,   64,   65,   43,   47,   51,
+   69,   63,   31,   70,   72,  101,   64,   91,   92,   32,
+   96,  102,   99,   31,  100,  104,  114,  117,  129,  120,
+   32,  135,  131,    7,   12,   41,    4,   17,   73,   41,
+   41,   41,   23,   41,   33,   41,    0,   29,    0,   33,
+    0,   76,  125,    0,    0,    0,   41,   41,   41,   65,
+   41,   41,  133,    0,   63,   61,    0,   62,   37,   64,
+   37,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,   66,   60,    0,   59,   58,   65,   33,    0,    0,
+   75,   63,   61,   65,   62,    0,   64,    0,   63,   61,
+   65,   62,    0,   64,  103,   63,   61,    0,   62,   60,
+   64,   59,   58,    0,    0,   97,   60,    0,   59,   58,
+    0,    0,   65,   60,    0,   59,   58,   63,   61,   65,
+   62,    0,   64,  113,   63,   61,   65,   62,    0,   64,
+    0,   63,   61,  106,   62,   60,   64,   59,   58,    0,
+    0,    0,   60,    0,   59,   58,    0,    0,  118,   60,
+    0,   59,   58,   65,    0,    0,    0,  128,   63,   61,
+    0,   62,    0,   64,    0,    0,    0,   37,   38,   39,
+    0,    0,    0,   20,    0,    0,   60,   21,   59,   58,
+    0,   22,   23,   24,    0,   25,   26,   27,   56,   57,
+   57,    0,   37,    0,   28,   29,   37,   30,    0,    0,
+   37,   37,   37,    0,   37,   37,   37,    0,    0,    0,
+    0,   20,    0,   37,   37,   21,   37,    0,    0,   22,
+   23,   24,    0,   25,   26,   27,   20,    0,    0,    0,
+   21,    0,   28,   29,    0,   30,    0,   20,    0,   26,
+   27,   21,    0,    0,    0,    0,    0,   28,   29,    0,
+   26,   27,    0,    0,    0,    0,    0,    0,   28,   29,
+   41,   41,   41,   41,   41,   41,    0,   65,    0,    0,
+    0,    0,   63,   61,    0,   62,    0,   64,   45,    0,
+   45,    0,   45,    0,   52,   53,   54,   55,   56,   57,
+   60,    0,   59,   58,    0,   45,   45,   45,    0,   45,
+   45,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,   52,   53,   54,   55,   56,   57,   52,   52,   53,
+   54,   55,   56,   57,   53,   52,   53,   54,   55,   56,
+   57,    0,    0,    0,   52,   52,   52,    0,   52,   52,
+    0,   53,   53,   53,    0,   53,   53,   52,   53,   54,
+   55,   56,   57,    0,   52,   53,   54,   55,   56,   57,
+    0,   52,   53,   54,   55,   56,   57,    0,    0,    0,
+    0,   65,    0,    0,    0,    0,   63,   61,    0,   62,
+    0,   64,    0,    0,    0,    0,    0,    0,   52,   53,
+   54,   55,   56,   57,   60,   65,   59,    0,    0,    0,
+   63,   61,    0,   62,   46,   64,   46,    0,   46,    0,
+   54,    0,    0,    0,    0,    0,   55,    0,   60,    0,
+   59,   46,   46,   46,   50,   46,   46,   54,   54,   54,
+   51,   54,   54,   55,   55,   55,    0,   55,   55,    0,
+    0,   50,   50,   50,    0,   50,   50,   51,   51,   51,
+    0,   51,   51,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,    0,   50,   51,   52,   53,   54,   55,    0,
-   50,   51,   52,   53,   54,   55,    0,   50,   51,   52,
-   53,   54,   55,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,   50,   51,   52,   53,   54,   55,    0,   50,   51,
-   52,   53,   54,   55,    0,   50,   51,   52,   53,    0,
-    0,    0,    0,    0,   35,   35,   35,   35,   35,   35,
-    0,   36,   36,   36,   36,   36,   36,   42,   42,   42,
-   42,   42,   42,    0,   43,   43,   43,   43,   43,   43,
-    0,   44,   44,   44,   44,   44,   44,   45,   45,   45,
-   45,   45,   45,    0,   40,   40,   40,   40,   40,   40,
-    0,   41,   41,   41,   41,   41,   41,   46,   47,    0,
-    0,    0,    0,    0,    0,   65,   66,    0,    0,   69,
-    0,    0,    0,    0,    0,    0,    0,   73,   74,   75,
-   76,   77,   78,    0,   80,   81,   82,   83,   84,   85,
-   86,    0,    0,    0,    0,    0,    0,   91,    0,    0,
-    0,    0,    0,    0,    0,    0,   92,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-    0,    0,   99,    0,    0,    0,    0,    0,    0,  107,
+    0,    0,   52,   53,   54,   55,   56,   57,    0,   45,
+   45,   45,   45,   45,   45,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,   52,   52,
+   52,   52,   52,   52,    0,   53,   53,   53,   53,   53,
+   53,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,   52,   53,   54,   55,
+   56,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+   52,   53,   54,   55,    0,   46,   46,   46,   46,   46,
+   46,   54,   54,   54,   54,   54,   54,   55,   55,   55,
+   55,   55,   55,    0,    0,   50,   50,   50,   50,   50,
+   50,   51,   51,   51,   51,   51,   51,   48,   49,    0,
+    0,    0,    0,    0,    0,   67,   68,    0,    0,   71,
+    0,    0,    0,   74,    0,    0,    0,    0,   77,   78,
+   79,   80,   81,   82,    0,   84,   85,   86,   87,   88,
+   89,   90,    0,    0,    0,    0,    0,    0,   95,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,   98,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,    0,  107,    0,    0,
+    0,  111,    0,    0,    0,    0,    0,    0,  119,    0,
+    0,    0,    0,    0,    0,    0,    0,    0,    0,  126,
 };
 }
 static short yycheck[];
 static { yycheck(); }
 static void yycheck() {
 yycheck = new short[] {                         33,
-   41,  257,   41,  263,   59,   41,   40,   61,   41,  264,
-   40,   96,   41,   41,   33,  123,  101,   58,   59,   58,
-   59,   40,   58,   59,  109,   58,   59,   63,   40,   33,
-   58,   59,   37,   40,   40,   63,   40,   42,   37,  257,
-   33,  257,   47,   42,   43,   37,   45,   40,   47,  125,
-   42,   43,   37,   45,  257,   47,   41,   42,   43,   37,
-   45,  262,   47,   40,   42,   43,   41,   45,   60,   47,
-   62,   41,   59,   58,   59,   60,   59,   62,   63,   44,
-   41,   59,   60,  268,   62,   63,   59,  263,   37,  123,
-  125,  125,   41,   42,   43,   37,   45,   44,   47,   41,
-   42,   43,   37,   45,  123,   47,  125,   42,   43,   41,
-   45,   60,   47,   62,   63,  258,  259,  260,   60,  123,
-   62,   63,    8,   58,   32,   60,   37,   62,   63,   -1,
+   61,  257,   41,   33,   41,  263,   40,   59,  102,  258,
+  259,  260,   41,  264,   41,  109,   41,   40,   33,   58,
+   59,   58,   59,   41,   63,   40,   63,  121,  123,   58,
+   59,   58,   59,   58,   59,   37,   40,   33,  257,  257,
+   42,   43,   40,   45,   40,   47,   37,   40,   40,  125,
+  257,   42,   33,  262,   40,   44,   47,   41,   41,   40,
+   59,   41,   59,   33,   59,   41,  268,  123,  125,   59,
+   40,  125,  123,  263,    8,   37,  125,   44,   59,   41,
+   42,   43,   41,   45,  125,   47,   -1,  125,   -1,  123,
+   -1,  125,  122,   -1,   -1,   -1,   58,   59,   60,   37,
+   62,   63,  132,   -1,   42,   43,   -1,   45,  123,   47,
+  125,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   59,   60,   -1,   62,   63,   37,  123,   -1,   -1,
    41,   42,   43,   37,   45,   -1,   47,   -1,   42,   43,
-   37,   45,   -1,   47,   -1,   42,   43,   -1,   45,   60,
-   47,   62,   63,   41,   -1,   43,   60,   45,   62,   63,
-   41,   -1,   43,   60,   45,   62,   41,   -1,   -1,   -1,
-   58,   59,   60,   41,   62,   63,   -1,   58,   59,   60,
-   41,   62,   63,   58,   59,   60,   41,   62,   63,   -1,
-   58,   59,   60,   41,   62,   63,   -1,   58,   59,   60,
+   37,   45,   -1,   47,   41,   42,   43,   -1,   45,   60,
+   47,   62,   63,   -1,   -1,   59,   60,   -1,   62,   63,
+   -1,   -1,   37,   60,   -1,   62,   63,   42,   43,   37,
+   45,   -1,   47,   41,   42,   43,   37,   45,   -1,   47,
+   -1,   42,   43,   58,   45,   60,   47,   62,   63,   -1,
+   -1,   -1,   60,   -1,   62,   63,   -1,   -1,   59,   60,
+   -1,   62,   63,   37,   -1,   -1,   -1,   41,   42,   43,
+   -1,   45,   -1,   47,   -1,   -1,   -1,  278,  279,  280,
+   -1,   -1,   -1,  257,   -1,   -1,   60,  261,   62,   63,
+   -1,  265,  266,  267,   -1,  269,  270,  271,  277,  276,
+  277,   -1,  257,   -1,  278,  279,  261,  281,   -1,   -1,
+  265,  266,  267,   -1,  269,  270,  271,   -1,   -1,   -1,
+   -1,  257,   -1,  278,  279,  261,  281,   -1,   -1,  265,
+  266,  267,   -1,  269,  270,  271,  257,   -1,   -1,   -1,
+  261,   -1,  278,  279,   -1,  281,   -1,  257,   -1,  270,
+  271,  261,   -1,   -1,   -1,   -1,   -1,  278,  279,   -1,
+  270,  271,   -1,   -1,   -1,   -1,   -1,   -1,  278,  279,
+  272,  273,  274,  275,  276,  277,   -1,   37,   -1,   -1,
+   -1,   -1,   42,   43,   -1,   45,   -1,   47,   41,   -1,
+   43,   -1,   45,   -1,  272,  273,  274,  275,  276,  277,
+   60,   -1,   62,   63,   -1,   58,   59,   60,   -1,   62,
+   63,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,  272,  273,  274,  275,  276,  277,   41,  272,  273,
+  274,  275,  276,  277,   41,  272,  273,  274,  275,  276,
+  277,   -1,   -1,   -1,   58,   59,   60,   -1,   62,   63,
+   -1,   58,   59,   60,   -1,   62,   63,  272,  273,  274,
+  275,  276,  277,   -1,  272,  273,  274,  275,  276,  277,
+   -1,  272,  273,  274,  275,  276,  277,   -1,   -1,   -1,
+   -1,   37,   -1,   -1,   -1,   -1,   42,   43,   -1,   45,
+   -1,   47,   -1,   -1,   -1,   -1,   -1,   -1,  272,  273,
+  274,  275,  276,  277,   60,   37,   62,   -1,   -1,   -1,
+   42,   43,   -1,   45,   41,   47,   43,   -1,   45,   -1,
+   41,   -1,   -1,   -1,   -1,   -1,   41,   -1,   60,   -1,
+   62,   58,   59,   60,   41,   62,   63,   58,   59,   60,
    41,   62,   63,   58,   59,   60,   -1,   62,   63,   -1,
-   58,   59,   60,   -1,   62,   63,   -1,   58,   59,   60,
-   -1,   62,   63,  257,  278,  279,  280,  261,   -1,   -1,
-   -1,  265,  266,  267,   -1,  269,  270,  271,  257,   -1,
-  276,  277,  261,   -1,  278,  279,  265,  266,  267,  277,
-  269,  270,  271,  257,   -1,   -1,   -1,  261,   -1,  278,
-  279,  265,  266,  267,  257,  269,  270,  271,  261,   -1,
-   -1,   -1,   -1,   -1,  278,  279,   -1,  270,  271,   -1,
-  272,  273,  274,  275,  276,  278,  279,  272,  273,  274,
-  275,  276,  277,   -1,  272,  273,  274,  275,  276,  277,
+   -1,   58,   59,   60,   -1,   62,   63,   58,   59,   60,
+   -1,   62,   63,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   -1,  272,  273,  274,  275,  276,  277,   -1,
-  272,  273,  274,  275,  276,  277,   -1,  272,  273,  274,
-  275,  276,  277,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,  272,  273,  274,  275,  276,  277,   -1,  272,  273,
-  274,  275,  276,  277,   -1,  272,  273,  274,  275,   -1,
-   -1,   -1,   -1,   -1,  272,  273,  274,  275,  276,  277,
-   -1,  272,  273,  274,  275,  276,  277,  272,  273,  274,
-  275,  276,  277,   -1,  272,  273,  274,  275,  276,  277,
-   -1,  272,  273,  274,  275,  276,  277,  272,  273,  274,
-  275,  276,  277,   -1,  272,  273,  274,  275,  276,  277,
-   -1,  272,  273,  274,  275,  276,  277,   30,   31,   -1,
-   -1,   -1,   -1,   -1,   -1,   38,   39,   -1,   -1,   42,
-   -1,   -1,   -1,   -1,   -1,   -1,   -1,   50,   51,   52,
-   53,   54,   55,   -1,   57,   58,   59,   60,   61,   62,
-   63,   -1,   -1,   -1,   -1,   -1,   -1,   70,   -1,   -1,
-   -1,   -1,   -1,   -1,   -1,   -1,   79,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
-   -1,   -1,   95,   -1,   -1,   -1,   -1,   -1,   -1,  102,
+   -1,   -1,  272,  273,  274,  275,  276,  277,   -1,  272,
+  273,  274,  275,  276,  277,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,  272,  273,
+  274,  275,  276,  277,   -1,  272,  273,  274,  275,  276,
+  277,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,  272,  273,  274,  275,
+  276,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+  272,  273,  274,  275,   -1,  272,  273,  274,  275,  276,
+  277,  272,  273,  274,  275,  276,  277,  272,  273,  274,
+  275,  276,  277,   -1,   -1,  272,  273,  274,  275,  276,
+  277,  272,  273,  274,  275,  276,  277,   31,   32,   -1,
+   -1,   -1,   -1,   -1,   -1,   39,   40,   -1,   -1,   43,
+   -1,   -1,   -1,   47,   -1,   -1,   -1,   -1,   52,   53,
+   54,   55,   56,   57,   -1,   59,   60,   61,   62,   63,
+   64,   65,   -1,   -1,   -1,   -1,   -1,   -1,   72,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   83,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,  101,   -1,   -1,
+   -1,  105,   -1,   -1,   -1,   -1,   -1,   -1,  112,   -1,
+   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,  123,
 };
 }
 final static short YYFINAL=1;
-final static short YYMAXTOKEN=280;
+final static short YYMAXTOKEN=281;
 final static String yyname[] = {
 "end-of-file",null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
@@ -382,7 +456,7 @@ null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,"ID","INT","FLOAT","BOOL","NUM","LIT",
 "VOID","MAIN","READ","WRITE","IF","ELSE","WHILE","TRUE","FALSE","EQ","LEQ",
-"GEQ","NEQ","AND","OR","MAISMAIS","MENOSMENOS","MAISIGUAL",
+"GEQ","NEQ","AND","OR","MAISMAIS","MENOSMENOS","MAISIGUAL","FOR",
 };
 final static String yyrule[] = {
 "$accept : prog",
@@ -411,7 +485,17 @@ final static String yyrule[] = {
 "$$7 :",
 "cmd : IF '(' exp $$7 ')' cmd restoIf",
 "$$8 :",
-"restoIf : ELSE $$8 cmd",
+"$$9 :",
+"$$10 :",
+"$$11 :",
+"$$12 :",
+"cmd : FOR '(' exp ';' $$8 exp ';' $$9 exp ')' $$10 '{' $$11 lcmd $$12 '}'",
+"$$13 :",
+"$$14 :",
+"$$15 :",
+"cmd : FOR '(' ';' ';' ')' $$13 '{' $$14 lcmd $$15 '}'",
+"$$16 :",
+"restoIf : ELSE $$16 cmd",
 "restoIf :",
 "exp : NUM",
 "exp : TRUE",
@@ -438,12 +522,12 @@ final static String yyrule[] = {
 "exp : MENOSMENOS ID",
 "exp : ID MENOSMENOS",
 "exp : ID MAISIGUAL exp",
-"$$9 :",
-"$$10 :",
-"exp : exp '?' $$9 exp ':' $$10 exp",
+"$$17 :",
+"$$18 :",
+"exp : exp '?' $$17 exp ':' $$18 exp",
 };
 
-//#line 222 "exemploGC.y"
+//#line 266 "exemploGC.y"
 
   private Yylex lexer;
 
@@ -694,7 +778,7 @@ final static String yyrule[] = {
 	      }		
    }
    
-//#line 626 "Parser.java"
+//#line 710 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################
@@ -849,50 +933,50 @@ boolean doaction;
       {
 //########## USER-SUPPLIED ACTIONS ##########
 case 1:
-//#line 34 "exemploGC.y"
+//#line 35 "exemploGC.y"
 { geraInicio(); }
 break;
 case 2:
-//#line 34 "exemploGC.y"
+//#line 35 "exemploGC.y"
 { geraAreaDados(); geraAreaLiterais(); }
 break;
 case 3:
-//#line 36 "exemploGC.y"
+//#line 37 "exemploGC.y"
 { System.out.println("_start:"); }
 break;
 case 4:
-//#line 37 "exemploGC.y"
+//#line 38 "exemploGC.y"
 { geraFinal(); }
 break;
 case 8:
-//#line 42 "exemploGC.y"
+//#line 43 "exemploGC.y"
 {  TS_entry nodo = ts.pesquisa(val_peek(1).sval);
     	                if (nodo != null) 
                             yyerror("(sem) variavel >" + val_peek(1).sval + "< jah declarada");
                         else ts.insert(new TS_entry(val_peek(1).sval, val_peek(2).ival)); }
 break;
 case 9:
-//#line 48 "exemploGC.y"
+//#line 49 "exemploGC.y"
 { yyval.ival = INT; }
 break;
 case 10:
-//#line 49 "exemploGC.y"
+//#line 50 "exemploGC.y"
 { yyval.ival = FLOAT; }
 break;
 case 11:
-//#line 50 "exemploGC.y"
+//#line 51 "exemploGC.y"
 { yyval.ival = BOOL; }
 break;
 case 14:
-//#line 57 "exemploGC.y"
+//#line 58 "exemploGC.y"
 { System.out.println("\tPOPL %EDX"); }
 break;
 case 15:
-//#line 58 "exemploGC.y"
+//#line 59 "exemploGC.y"
 { System.out.println("\t\t# terminou o bloco..."); }
 break;
 case 16:
-//#line 59 "exemploGC.y"
+//#line 60 "exemploGC.y"
 { strTab.add(val_peek(2).sval);
                                 System.out.println("\tMOVL $_str_"+strCount+"Len, %EDX"); 
 				System.out.println("\tMOVL $_str_"+strCount+", %ECX"); 
@@ -902,7 +986,7 @@ case 16:
 				}
 break;
 case 17:
-//#line 68 "exemploGC.y"
+//#line 69 "exemploGC.y"
 { strTab.add(val_peek(0).sval);
                                 System.out.println("\tMOVL $_str_"+strCount+"Len, %EDX"); 
 				System.out.println("\tMOVL $_str_"+strCount+", %ECX"); 
@@ -911,7 +995,7 @@ case 17:
 				}
 break;
 case 18:
-//#line 76 "exemploGC.y"
+//#line 77 "exemploGC.y"
 { 
 			 System.out.println("\tPOPL %EAX"); 
 			 System.out.println("\tCALL _write");	
@@ -919,7 +1003,7 @@ case 18:
                         }
 break;
 case 19:
-//#line 83 "exemploGC.y"
+//#line 84 "exemploGC.y"
 {
 									System.out.println("\tPUSHL $_"+val_peek(2).sval);
 									System.out.println("\tCALL _read");
@@ -929,30 +1013,31 @@ case 19:
 								}
 break;
 case 20:
-//#line 91 "exemploGC.y"
+//#line 92 "exemploGC.y"
 {
-					pRot.push(proxRot);  proxRot += 2;
+					pRot.push(proxRot); 
+					proxRot += 2;
 					System.out.printf("rot_%02d:\n",pRot.peek());
 				  }
 break;
 case 21:
-//#line 95 "exemploGC.y"
+//#line 97 "exemploGC.y"
 {
-			 							System.out.println("\tPOPL %EAX   # desvia se falso...");
-											System.out.println("\tCMPL $0, %EAX");
-											System.out.printf("\tJE rot_%02d\n", (int)pRot.peek()+1);
-										}
+							System.out.println("\tPOPL %EAX   # desvia se falso...");
+							System.out.println("\tCMPL $0, %EAX");
+							System.out.printf("\tJE rot_%02d\n", (int)pRot.peek()+1);
+						}
 break;
 case 22:
-//#line 100 "exemploGC.y"
+//#line 102 "exemploGC.y"
 {
-				  		System.out.printf("\tJMP rot_%02d   # terminou cmd na linha de cima\n", pRot.peek());
+				  			System.out.printf("\tJMP rot_%02d   # terminou cmd na linha de cima\n", pRot.peek());
 							System.out.printf("rot_%02d:\n",(int)pRot.peek()+1);
 							pRot.pop();
-							}
+						}
 break;
 case 23:
-//#line 106 "exemploGC.y"
+//#line 108 "exemploGC.y"
 {	
 				pRot.push(proxRot);
 				proxRot += 2;
@@ -962,7 +1047,7 @@ case 23:
 			}
 break;
 case 24:
-//#line 115 "exemploGC.y"
+//#line 117 "exemploGC.y"
 {
 						System.out.printf("rot_%02d:\n",pRot.peek()+1);
 						pRot.pop();
@@ -971,99 +1056,157 @@ break;
 case 25:
 //#line 122 "exemploGC.y"
 {
+				pRot.push(proxRot);
+				proxRot +=4;
+				System.out.printf("rot_%02d:\n", pRot.peek());
+			}
+break;
+case 26:
+//#line 127 "exemploGC.y"
+{
+				System.out.println("\tPOPL %EAX");
+				System.out.println("\tCMPL $0 , %EAX");
+				System.out.printf("\tJE rot_%02d\n", pRot.peek() + 3);
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 1);
+				System.out.printf("rot_%02d:\n", pRot.peek() + 2);
+			}
+break;
+case 27:
+//#line 134 "exemploGC.y"
+{
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek());
+			}
+break;
+case 28:
+//#line 137 "exemploGC.y"
+{
+						System.out.printf("rot_%02d:\n", pRot.peek() + 1);
+					}
+break;
+case 29:
+//#line 141 "exemploGC.y"
+{
+						System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 2);
+						System.out.printf("rot_%02d:\n", pRot.peek() + 3);
+						pRot.pop();
+					}
+break;
+case 31:
+//#line 148 "exemploGC.y"
+{
+                pRot.push(proxRot);
+                proxRot += 2;
+                System.out.printf("rot_%02d:\n", pRot.peek());
+                System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 1);
+            }
+break;
+case 32:
+//#line 155 "exemploGC.y"
+{ System.out.printf("rot_%02d:\n", pRot.peek() + 1); }
+break;
+case 33:
+//#line 157 "exemploGC.y"
+{
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek());
+				pRot.pop();
+			}
+break;
+case 35:
+//#line 166 "exemploGC.y"
+{
 				System.out.printf("\tJMP rot_%02d\n", pRot.peek()+1);
 				System.out.printf("rot_%02d:\n",pRot.peek());
 	
 			}
 break;
-case 27:
-//#line 130 "exemploGC.y"
+case 37:
+//#line 174 "exemploGC.y"
 {
 		    System.out.printf("\tJMP rot_%02d\n", pRot.peek()+1);
 				System.out.printf("rot_%02d:\n",pRot.peek());
 				}
 break;
-case 28:
-//#line 137 "exemploGC.y"
+case 38:
+//#line 181 "exemploGC.y"
 { System.out.println("\tPUSHL $"+val_peek(0).sval); }
 break;
-case 29:
-//#line 138 "exemploGC.y"
+case 39:
+//#line 182 "exemploGC.y"
 { System.out.println("\tPUSHL $1"); }
 break;
-case 30:
-//#line 139 "exemploGC.y"
+case 40:
+//#line 183 "exemploGC.y"
 { System.out.println("\tPUSHL $0"); }
 break;
-case 31:
-//#line 140 "exemploGC.y"
+case 41:
+//#line 184 "exemploGC.y"
 { System.out.println("\tPUSHL _"+val_peek(0).sval); }
 break;
-case 33:
-//#line 142 "exemploGC.y"
+case 43:
+//#line 186 "exemploGC.y"
 { gcExpNot(); }
 break;
-case 34:
-//#line 143 "exemploGC.y"
+case 44:
+//#line 187 "exemploGC.y"
 {  System.out.println("\tPOPL %EDX");
   						   System.out.println("\tMOVL %EDX, _"+val_peek(2).sval);
 						   System.out.println("\tPUSHL  %EDX");
 					        }
 break;
-case 35:
-//#line 147 "exemploGC.y"
+case 45:
+//#line 191 "exemploGC.y"
 { gcExpArit('+'); }
 break;
-case 36:
-//#line 148 "exemploGC.y"
+case 46:
+//#line 192 "exemploGC.y"
 { gcExpArit('-'); }
 break;
-case 37:
-//#line 149 "exemploGC.y"
+case 47:
+//#line 193 "exemploGC.y"
 { gcExpArit('*'); }
 break;
-case 38:
-//#line 150 "exemploGC.y"
+case 48:
+//#line 194 "exemploGC.y"
 { gcExpArit('/'); }
 break;
-case 39:
-//#line 151 "exemploGC.y"
+case 49:
+//#line 195 "exemploGC.y"
 { gcExpArit('%'); }
 break;
-case 40:
-//#line 153 "exemploGC.y"
+case 50:
+//#line 197 "exemploGC.y"
 { gcExpRel('>'); }
 break;
-case 41:
-//#line 154 "exemploGC.y"
+case 51:
+//#line 198 "exemploGC.y"
 { gcExpRel('<'); }
 break;
-case 42:
-//#line 155 "exemploGC.y"
+case 52:
+//#line 199 "exemploGC.y"
 { gcExpRel(EQ); }
 break;
-case 43:
-//#line 156 "exemploGC.y"
+case 53:
+//#line 200 "exemploGC.y"
 { gcExpRel(LEQ); }
 break;
-case 44:
-//#line 157 "exemploGC.y"
+case 54:
+//#line 201 "exemploGC.y"
 { gcExpRel(GEQ); }
 break;
-case 45:
-//#line 158 "exemploGC.y"
+case 55:
+//#line 202 "exemploGC.y"
 { gcExpRel(NEQ); }
 break;
-case 46:
-//#line 160 "exemploGC.y"
+case 56:
+//#line 204 "exemploGC.y"
 { gcExpLog(OR); }
 break;
-case 47:
-//#line 161 "exemploGC.y"
+case 57:
+//#line 205 "exemploGC.y"
 { gcExpLog(AND); }
 break;
-case 48:
-//#line 162 "exemploGC.y"
+case 58:
+//#line 206 "exemploGC.y"
 { 
 								System.out.println("\tPUSHL _"+val_peek(0).sval);
 								System.out.println("\tPUSHL $1");
@@ -1073,8 +1216,8 @@ case 48:
 								System.out.println("\tPUSHL _"+val_peek(0).sval);
 							}
 break;
-case 49:
-//#line 170 "exemploGC.y"
+case 59:
+//#line 214 "exemploGC.y"
 {
 								System.out.println("\tPUSHL _"+val_peek(1).sval);
 								System.out.println("\tPUSHL _"+val_peek(1).sval);
@@ -1084,8 +1227,8 @@ case 49:
 								System.out.println("\tMOVL %EAX, _" + val_peek(1).sval);
 							}
 break;
-case 50:
-//#line 178 "exemploGC.y"
+case 60:
+//#line 222 "exemploGC.y"
 { 
 								System.out.println("\tPUSHL _"+val_peek(0).sval);
 								System.out.println("\tPUSHL $1");
@@ -1095,8 +1238,8 @@ case 50:
 								System.out.println("\tPUSHL _"+val_peek(0).sval);
 							}
 break;
-case 51:
-//#line 186 "exemploGC.y"
+case 61:
+//#line 230 "exemploGC.y"
 {
 								System.out.println("\tPUSHL _"+val_peek(1).sval);
 								System.out.println("\tPUSHL _"+val_peek(1).sval);
@@ -1106,8 +1249,8 @@ case 51:
 								System.out.println("\tMOVL %EAX, _" + val_peek(1).sval);
 							}
 break;
-case 52:
-//#line 194 "exemploGC.y"
+case 62:
+//#line 238 "exemploGC.y"
 {
 								System.out.println("\tPUSHL _" + val_peek(2).sval);
 								gcExpArit('+');
@@ -1116,8 +1259,8 @@ case 52:
 								System.out.println("\tPUSHL %EAX");
 							}
 break;
-case 53:
-//#line 201 "exemploGC.y"
+case 63:
+//#line 245 "exemploGC.y"
 {	
 				pRot.push(proxRot);
 				proxRot += 2;
@@ -1126,21 +1269,21 @@ case 53:
 				System.out.printf("\tJE rot_%02d\n", pRot.peek());
 			}
 break;
-case 54:
-//#line 209 "exemploGC.y"
+case 64:
+//#line 253 "exemploGC.y"
 {
 				System.out.printf("\tJMP rot_%02d\n", pRot.peek()+1);
 				System.out.printf("rot_%02d:\n",pRot.peek());
 			}
 break;
-case 55:
-//#line 214 "exemploGC.y"
+case 65:
+//#line 258 "exemploGC.y"
 {
 				System.out.printf("rot_%02d:\n",pRot.peek()+1);
 				pRot.pop();
 			}
 break;
-//#line 1067 "Parser.java"
+//#line 1210 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

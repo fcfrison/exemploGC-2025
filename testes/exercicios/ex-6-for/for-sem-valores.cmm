@@ -1,0 +1,9 @@
+int i;
+int a;
+void main(){
+    a = 0;
+    for(;;){
+        a++;
+        write("a: ", a);
+    }
+}

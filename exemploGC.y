@@ -12,6 +12,7 @@
 %token AND, OR
 %token MAISMAIS, MENOSMENOS
 %token MAISIGUAL
+%token FOR
 
 %nonassoc MAISIGUAL
 %right '='
@@ -89,19 +90,20 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 								}
          
     | WHILE {
-					pRot.push(proxRot);  proxRot += 2;
+					pRot.push(proxRot); 
+					proxRot += 2;
 					System.out.printf("rot_%02d:\n",pRot.peek());
 				  } 
 			 '(' exp ')' {
-			 							System.out.println("\tPOPL %EAX   # desvia se falso...");
-											System.out.println("\tCMPL $0, %EAX");
-											System.out.printf("\tJE rot_%02d\n", (int)pRot.peek()+1);
-										} 
+							System.out.println("\tPOPL %EAX   # desvia se falso...");
+							System.out.println("\tCMPL $0, %EAX");
+							System.out.printf("\tJE rot_%02d\n", (int)pRot.peek()+1);
+						} 
 				cmd		{
-				  		System.out.printf("\tJMP rot_%02d   # terminou cmd na linha de cima\n", pRot.peek());
+				  			System.out.printf("\tJMP rot_%02d   # terminou cmd na linha de cima\n", pRot.peek());
 							System.out.printf("rot_%02d:\n",(int)pRot.peek()+1);
 							pRot.pop();
-							}  
+						}  
 							
 	| IF '(' exp {	
 				pRot.push(proxRot);
@@ -116,6 +118,50 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 						System.out.printf("rot_%02d:\n",pRot.peek()+1);
 						pRot.pop();
 					}
+	| FOR '(' 
+			exp ';' {
+				pRot.push(proxRot);
+				proxRot +=4;
+				System.out.printf("rot_%02d:\n", pRot.peek());
+			}
+			exp ';' {
+				System.out.println("\tPOPL %EAX");
+				System.out.println("\tCMPL $0 , %EAX");
+				System.out.printf("\tJE rot_%02d\n", pRot.peek() + 3);
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 1);
+				System.out.printf("rot_%02d:\n", pRot.peek() + 2);
+			}
+			exp ')' {
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek());
+			} '{'
+					{
+						System.out.printf("rot_%02d:\n", pRot.peek() + 1);
+					}
+					lcmd
+					{
+						System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 2);
+						System.out.printf("rot_%02d:\n", pRot.peek() + 3);
+						pRot.pop();
+					}
+			'}'
+	| FOR '(' ';' ';' ')' 
+            {
+                pRot.push(proxRot);
+                proxRot += 2;
+                System.out.printf("rot_%02d:\n", pRot.peek());
+                System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 1);
+            }
+		'{'
+			{ System.out.printf("rot_%02d:\n", pRot.peek() + 1); }
+			
+				lcmd
+			
+			{
+				System.out.printf("\tJMP rot_%02d\n", pRot.peek());
+				pRot.pop();
+			}
+			
+		'}'
      ;
      
      
@@ -215,7 +261,7 @@ exp :  	NUM  { System.out.println("\tPUSHL $"+$1); }
 				System.out.printf("rot_%02d:\n",pRot.peek()+1);
 				pRot.pop();
 			}
-     ;						
+     	;						
 
 
 %%
