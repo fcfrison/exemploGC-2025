@@ -2,5 +2,10 @@
 *.output
 *.o
 *.s
+
 Parser.java
 Yylex.java
+
+as/**
+obj/**
+bin/**
