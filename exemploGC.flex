@@ -81,6 +81,8 @@ false  { return Parser.FALSE;    }
 for    { return Parser.FOR;      }
 "--"   { return Parser.MENOSMENOS; }
 "+="   { return Parser.MAISIGUAL; }
+"break" { return Parser.BREAK; }
+"continue" { return Parser.CONTINUE; }
 
 
 

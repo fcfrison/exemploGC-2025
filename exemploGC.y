@@ -12,7 +12,7 @@
 %token AND, OR
 %token MAISMAIS, MENOSMENOS
 %token MAISIGUAL
-%token FOR
+%token FOR, BREAK, CONTINUE
 
 %nonassoc MAISIGUAL
 %right '='
@@ -90,7 +90,9 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 								}
          
     | WHILE {
-					pRot.push(proxRot); 
+					pRot.push(proxRot);
+					pBreak.push(proxRot+1);
+					pContinue.push(proxRot);
 					proxRot += 2;
 					System.out.printf("rot_%02d:\n",pRot.peek());
 				  } 
@@ -103,6 +105,8 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 				  			System.out.printf("\tJMP rot_%02d   # terminou cmd na linha de cima\n", pRot.peek());
 							System.out.printf("rot_%02d:\n",(int)pRot.peek()+1);
 							pRot.pop();
+							pBreak.pop();
+							pContinue.pop();
 						}  
 							
 	| IF '(' exp {	
@@ -121,6 +125,8 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 	| FOR '(' 
 			exp ';' {
 				pRot.push(proxRot);
+				pBreak.push(proxRot + 3); // pula para o fim
+				pContinue.push(pRot.peek() + 2); // pula para o incremento
 				proxRot +=4;
 				System.out.printf("rot_%02d:\n", pRot.peek());
 			}
@@ -142,12 +148,16 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 						System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 2);
 						System.out.printf("rot_%02d:\n", pRot.peek() + 3);
 						pRot.pop();
+						pBreak.pop();
+						pContinue.pop();
 					}
 			'}'
 	| FOR '(' ';' ';' ')' 
             {
                 pRot.push(proxRot);
-                proxRot += 2;
+				pBreak.push(proxRot + 2);
+				pContinue.push(proxRot);
+                proxRot += 3;
                 System.out.printf("rot_%02d:\n", pRot.peek());
                 System.out.printf("\tJMP rot_%02d\n", pRot.peek() + 1);
             }
@@ -158,10 +168,27 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 			
 			{
 				System.out.printf("\tJMP rot_%02d\n", pRot.peek());
+				System.out.printf("rot_%02d:\n", pRot.peek() + 2 );
 				pRot.pop();
+				pBreak.pop();
+				pContinue.pop();
 			}
 			
 		'}'
+	| BREAK ';' {
+        if (pBreak.isEmpty()) {
+            yyerror("break fora de um loop");
+        } else {
+            System.out.printf("\tJMP rot_%02d\n", pBreak.peek());
+        }
+    }
+	| CONTINUE ';' {
+		if (pContinue.isEmpty()){
+			yyerror("continue fora de um loop");
+		} else {
+			System.out.printf("\tJMP rot_%02d\n", pContinue.peek());
+		}
+	}
      ;
      
      
@@ -177,7 +204,7 @@ restoIf : ELSE  {
 		    System.out.printf("\tJMP rot_%02d\n", pRot.peek()+1);
 				System.out.printf("rot_%02d:\n",pRot.peek());
 				} 
-		;										
+		;									
 
 
 exp :  	NUM  { System.out.println("\tPUSHL $"+$1); } 
@@ -274,6 +301,8 @@ exp :  	NUM  { System.out.println("\tPUSHL $"+$1); }
   private ArrayList<String> strTab = new ArrayList<String>();
 
   private Stack<Integer> pRot = new Stack<Integer>();
+  private Stack<Integer> pBreak = new Stack<Integer>();
+  private Stack<Integer> pContinue = new Stack<Integer>();
   private int proxRot = 1;
 
 

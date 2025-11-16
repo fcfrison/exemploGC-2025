@@ -1,0 +1,12 @@
+int a;
+void main(){
+    a = 0;
+    while(1){
+        a++;
+        write("a = ", a);
+        if(a > 1000){
+            write("saindo em a = ", a);
+            break;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+int i;
+int a;
+void main(){
+    a = 2;
+    for(i=10; i>0; i--){
+        a = a * 2;
+        if(a < 16){
+            write("a: ", a);
+        }else{
+            break;
+        }
+    }
+}

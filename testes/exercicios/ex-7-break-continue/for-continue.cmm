@@ -1,0 +1,16 @@
+int a;
+int i;
+void main(){
+    a = 1;
+    for(i=0;i<100;i++){
+        a = a * 3;
+        if(a < 5000){
+            write("continue a = ", a);
+            continue;
+        }else{
+            write("break a = ", a);
+            break;
+        }
+
+    }
+}
