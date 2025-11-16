@@ -1,0 +1,9 @@
+int a;
+void main(){
+    a = 0;
+    do{
+        a++;
+        write("do a = ", a);
+    }while(a < 100);
+    write("end while a = ", a);
+}

@@ -83,6 +83,7 @@ for    { return Parser.FOR;      }
 "+="   { return Parser.MAISIGUAL; }
 "break" { return Parser.BREAK; }
 "continue" { return Parser.CONTINUE; }
+"do" { return Parser.DO ; }
 
 
 

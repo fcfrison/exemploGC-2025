@@ -12,7 +12,7 @@
 %token AND, OR
 %token MAISMAIS, MENOSMENOS
 %token MAISIGUAL
-%token FOR, BREAK, CONTINUE
+%token FOR, BREAK, CONTINUE, DO
 
 %nonassoc MAISIGUAL
 %right '='
@@ -122,6 +122,26 @@ cmd :  exp ';' { System.out.println("\tPOPL %EDX"); }
 						System.out.printf("rot_%02d:\n",pRot.peek()+1);
 						pRot.pop();
 					}
+	| DO '{' {
+		pRot.push(proxRot);
+		pBreak.push(proxRot + 1);
+		pContinue.push(proxRot);
+		proxRot += 2;
+		System.out.printf("rot_%02d:\n", pRot.peek());
+	}
+		lcmd
+	'}' WHILE '(' 
+				exp {
+					System.out.println("\tPOPL %EAX");
+					System.out.println("\tCMPL $0 , %EAX");
+					System.out.printf("\tJE rot_%02d\n", pRot.peek() + 1);
+					System.out.printf("\tJMP rot_%02d\n", pRot.peek());
+					System.out.printf("rot_%02d:\n", pRot.peek() + 1);
+					pRot.pop();
+					pBreak.pop();
+					pContinue.pop();
+				}
+				')'';'
 	| FOR '(' 
 			exp ';' {
 				pRot.push(proxRot);
